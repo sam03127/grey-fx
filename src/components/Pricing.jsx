@@ -1,2 +1,68 @@
-const plans=[['VIDEO EDIT','₹250+','Cinematic edits / reels / short-form','01'],['PHOTO GRADE','₹150+','Colour grading / cleanup / finishing','02'],['CUSTOM','QUOTE','Motion graphics / campaigns / full projects','03']];
-export default function Pricing(){return <section id="pricing" className="border-b border-white/10 bg-[#080808] py-28 md:py-36"><div className="mx-auto max-w-7xl px-6 md:px-12"><div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><div className="mono mb-4 text-[10px] tracking-[.35em] text-[#d6b46a]">// 03 — SIMPLE PRICING</div><h2 className="text-5xl font-black tracking-[-.06em] md:text-8xl">CHOOSE <span className="text-white/25">YOUR</span> FRAME.</h2></div><p className="max-w-xs text-xs leading-6 text-white/35">Starting prices. Final quote depends on footage, complexity and turnaround.</p></div><div className="grid border-l border-t border-white/10 md:grid-cols-3">{plans.map(([t,p,d,n])=><div key={t} className="border-b border-r border-white/10 p-7 md:p-9"><div className="flex justify-between mono text-[9px] text-white/30"><span>{n}</span><span>GREY FX</span></div><h3 className="mt-16 text-xl font-bold tracking-tight">{t}</h3><div className="mt-3 text-5xl font-black tracking-[-.06em] text-[#d6b46a]">{p}</div><p className="mt-5 max-w-xs text-xs leading-6 text-white/35">{d}</p><a href="#contact" className="mt-9 inline-block text-[10px] font-bold uppercase tracking-[.2em] text-white/70 hover:text-[#d6b46a]">Request an edit →</a></div>)}</div></div></section>}
+const plans=[
+  ['VIDEO EDIT','₹600','Cinematic edits / reels / short-form','01'],
+  ['PHOTO GRADE','₹450','Colour grading / cleanup / finishing','02'],
+  ['REELS','₹450+','Short-form reels / Instagram edits','03'],
+  ['MOTION GRAPHICS','₹1500','Motion graphics / campaigns / animated visuals','04']
+];
+
+export default function Pricing(){
+  return <section id="pricing" className="border-b border-white/10 bg-[#080808] py-28 md:py-36">
+
+    <div className="mx-auto max-w-7xl px-6 md:px-12">
+
+      <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+
+        <div>
+          <div className="mono mb-4 text-[10px] tracking-[.35em] text-[#d6b46a]">
+            // 03 — SIMPLE PRICING
+          </div>
+
+          <h2 className="text-5xl font-black tracking-[-.06em] md:text-8xl">
+            CHOOSE <span className="text-white/25">YOUR</span> FRAME.
+          </h2>
+        </div>
+
+        <p className="max-w-xs text-xs leading-6 text-white/35">
+          Starting prices. Final quote depends on footage, complexity and turnaround.
+        </p>
+
+      </div>
+
+      <div className="grid border-l border-t border-white/10 md:grid-cols-4">
+
+        {plans.map(([t,p,d,n])=>
+          <div key={t} className="border-b border-r border-white/10 p-7 md:p-9">
+
+            <div className="flex justify-between mono text-[9px] text-white/30">
+              <span>{n}</span>
+              <span>GREY FX</span>
+            </div>
+
+            <h3 className="mt-16 text-xl font-bold tracking-tight">
+              {t}
+            </h3>
+
+            <div className="mt-3 text-5xl font-black tracking-[-.06em] text-[#d6b46a]">
+              {p}
+            </div>
+
+            <p className="mt-5 max-w-xs text-xs leading-6 text-white/35">
+              {d}
+            </p>
+
+            <a
+              href="#contact"
+              className="mt-9 inline-block text-[10px] font-bold uppercase tracking-[.2em] text-white/70 hover:text-[#d6b46a]"
+            >
+              Request an edit →
+            </a>
+
+          </div>
+        )}
+
+      </div>
+
+    </div>
+
+  </section>
+}
