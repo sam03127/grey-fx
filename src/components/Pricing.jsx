@@ -8,7 +8,7 @@ const plans=[
 ];
 
 const motionProjects=[
-  '/grey-fx/assets/projects/motion-graphics/motion%20graphics.png'
+  '/grey-fx/assets/projects/motion-graphics/Screenshot%202026-09-05%20003657.png'
 ];
 
 export default function Pricing(){
