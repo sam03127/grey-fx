@@ -41,11 +41,7 @@ export default function Pricing() {
             return (
               <div
                 key={t}
-                onClick={() => {
-                  if (isMotionGraphics) {
-                    setShowProjects(true);
-                  }
-                }}
+                onClick={() => isMotionGraphics && setShowProjects(true)}
                 className={`border-b border-r border-white/10 p-7 md:p-9 ${
                   isMotionGraphics
                     ? 'cursor-pointer transition-all duration-300 hover:bg-[#d6b46a]/[.05] hover:border-[#d6b46a]/40'
@@ -91,7 +87,6 @@ export default function Pricing() {
         </div>
       </div>
 
-      {/* MOTION GRAPHICS PROJECTS */}
       {showProjects && (
         <div className="fixed inset-0 z-[9999] overflow-y-auto bg-[#050505]/95 backdrop-blur-xl">
 
@@ -123,7 +118,7 @@ export default function Pricing() {
               <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[.02]">
 
                 <img
-                  src="/grey-fx/assets/projects/motion-graphics/motion1.png"
+                  src="https://raw.githubusercontent.com/sam03127/grey-fx/main/assets/projects/motion-graphics/motion1.png"
                   alt="Motion Graphics Project 1"
                   className="block w-full h-auto object-contain"
                 />
