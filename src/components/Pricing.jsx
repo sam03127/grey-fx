@@ -30,35 +30,59 @@ export default function Pricing(){
 
       <div className="grid border-l border-t border-white/10 md:grid-cols-4">
 
-        {plans.map(([t,p,d,n])=>
-          <div key={t} className="border-b border-r border-white/10 p-7 md:p-9">
+        {plans.map(([t,p,d,n])=>{
 
-            <div className="flex justify-between mono text-[9px] text-white/30">
-              <span>{n}</span>
-              <span>GREY FX</span>
-            </div>
+          const isMotionGraphics=t==='MOTION GRAPHICS';
 
-            <h3 className="mt-16 text-xl font-bold tracking-tight">
-              {t}
-            </h3>
-
-            <div className="mt-3 text-5xl font-black tracking-[-.06em] text-[#d6b46a]">
-              {p}
-            </div>
-
-            <p className="mt-5 max-w-xs text-xs leading-6 text-white/35">
-              {d}
-            </p>
-
-            <a
-              href="#contact"
-              className="mt-9 inline-block text-[10px] font-bold uppercase tracking-[.2em] text-white/70 hover:text-[#d6b46a]"
+          return (
+            <div
+              key={t}
+              onClick={()=>{
+                if(isMotionGraphics){
+                  window.location.href='/grey-fx/motion-graphics';
+                }
+              }}
+              className={`border-b border-r border-white/10 p-7 md:p-9 ${
+                isMotionGraphics
+                  ? 'cursor-pointer transition-all duration-300 hover:bg-[#d6b46a]/[.05] hover:border-[#d6b46a]/40'
+                  : ''
+              }`}
             >
-              Request an edit →
-            </a>
 
-          </div>
-        )}
+              <div className="flex justify-between mono text-[9px] text-white/30">
+                <span>{n}</span>
+                <span>GREY FX</span>
+              </div>
+
+              <h3 className="mt-16 text-xl font-bold tracking-tight">
+                {t}
+              </h3>
+
+              <div className="mt-3 text-5xl font-black tracking-[-.06em] text-[#d6b46a]">
+                {p}
+              </div>
+
+              <p className="mt-5 max-w-xs text-xs leading-6 text-white/35">
+                {d}
+              </p>
+
+              {isMotionGraphics ? (
+                <div className="mt-9 text-[10px] font-bold uppercase tracking-[.2em] text-[#d6b46a]">
+                  View Projects →
+                </div>
+              ) : (
+                <a
+                  href="#contact"
+                  onClick={(e)=>e.stopPropagation()}
+                  className="mt-9 inline-block text-[10px] font-bold uppercase tracking-[.2em] text-white/70 hover:text-[#d6b46a]"
+                >
+                  Request an edit →
+                </a>
+              )}
+
+            </div>
+          );
+        })}
 
       </div>
 
