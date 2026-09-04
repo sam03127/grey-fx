@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 const plans=[
   ['VIDEO EDIT','₹600','Cinematic edits / reels / short-form','01'],
   ['PHOTO GRADE','₹450','Colour grading / cleanup / finishing','02'],
@@ -5,7 +7,13 @@ const plans=[
   ['MOTION GRAPHICS','₹1500','Motion graphics / campaigns / animated visuals','04']
 ];
 
+const motionProjects=[
+  '/grey-fx/assets/projects/motion-graphics/motion%20graphics.png'
+];
+
 export default function Pricing(){
+  const [showProjects,setShowProjects]=useState(false);
+
   return <section id="pricing" className="border-b border-white/10 bg-[#080808] py-28 md:py-36">
 
     <div className="mx-auto max-w-7xl px-6 md:px-12">
@@ -25,22 +33,18 @@ export default function Pricing(){
         <p className="max-w-xs text-xs leading-6 text-white/35">
           Starting prices. Final quote depends on footage, complexity and turnaround.
         </p>
-
       </div>
 
       <div className="grid border-l border-t border-white/10 md:grid-cols-4">
 
         {plans.map(([t,p,d,n])=>{
-
           const isMotionGraphics=t==='MOTION GRAPHICS';
 
           return (
             <div
               key={t}
               onClick={()=>{
-                if(isMotionGraphics){
-                  window.location.href='/grey-fx/motion-graphics';
-                }
+                if(isMotionGraphics) setShowProjects(true);
               }}
               className={`border-b border-r border-white/10 p-7 md:p-9 ${
                 isMotionGraphics
@@ -85,8 +89,60 @@ export default function Pricing(){
         })}
 
       </div>
-
     </div>
+
+    {showProjects && (
+      <div className="fixed inset-0 z-[9999] overflow-y-auto bg-[#050505]/95 backdrop-blur-xl">
+
+        <div className="mx-auto max-w-7xl px-6 py-10 md:px-12">
+
+          <div className="mb-12 flex items-center justify-between">
+
+            <div>
+              <div className="mono mb-3 text-[10px] tracking-[.35em] text-[#d6b46a]">
+                // MOTION GRAPHICS
+              </div>
+
+              <h2 className="text-4xl font-black tracking-[-.06em] md:text-7xl">
+                SELECTED <span className="text-white/25">WORK.</span>
+              </h2>
+            </div>
+
+            <button
+              onClick={()=>setShowProjects(false)}
+              className="rounded-full border border-white/15 px-5 py-3 text-xs font-bold uppercase tracking-widest text-white/70 transition hover:border-[#d6b46a] hover:text-[#d6b46a]"
+            >
+              Close ×
+            </button>
+
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+            {motionProjects.map((image,index)=>(
+              <div
+                key={image}
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[.02]"
+              >
+
+                <img
+                  src={image}
+                  alt={`Motion Graphics Project ${index+1}`}
+                  className="w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                />
+
+                <div className="mono px-5 py-4 text-[9px] uppercase tracking-[.25em] text-white/30">
+                  Motion Graphics / Project 01
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+      </div>
+    )}
 
   </section>
 }
