@@ -19,13 +19,17 @@ export default function CTA(){
     );
 
     const body=encodeURIComponent(
-      `Hello Grey FX,\n\n` +
-      `Name: ${form.firstName} ${form.lastName}\n\n` +
-      `Project Description:\n${form.description}\n\n` +
-      `Thank you.`
+      `Hello Grey FX,
+
+Name: ${form.firstName} ${form.lastName}
+
+Project Description:
+${form.description}
+
+Thank you.`
     );
 
-    window.location.href=
+    window.location.href =
       `mailto:greyfxindia@gmail.com?subject=${subject}&body=${body}`;
   };
 
@@ -68,7 +72,7 @@ export default function CTA(){
               onChange={handleChange}
               placeholder="Your first name"
               required
-              className="w-full rounded-2xl border border-white/10 bg-white/[.03] px-5 py-4 text-sm text-white outline-none placeholder:text-white/20 focus:border-[#d6b46a]/60 focus:bg-[#d6b46a]/[.03] transition"
+              className="w-full rounded-2xl border border-white/10 bg-white/[.03] px-5 py-4 text-sm text-white outline-none placeholder:text-white/20 focus:border-[#d6b46a]/60 transition"
             />
           </div>
 
@@ -84,7 +88,7 @@ export default function CTA(){
               onChange={handleChange}
               placeholder="Your last name"
               required
-              className="w-full rounded-2xl border border-white/10 bg-white/[.03] px-5 py-4 text-sm text-white outline-none placeholder:text-white/20 focus:border-[#d6b46a]/60 focus:bg-[#d6b46a]/[.03] transition"
+              className="w-full rounded-2xl border border-white/10 bg-white/[.03] px-5 py-4 text-sm text-white outline-none placeholder:text-white/20 focus:border-[#d6b46a]/60 transition"
             />
           </div>
 
@@ -99,10 +103,10 @@ export default function CTA(){
             name="description"
             value={form.description}
             onChange={handleChange}
-            placeholder="Tell us about your project, the type of edit you need, duration, style, references, etc."
+            placeholder="Tell us about your project, style, duration, references, etc."
             required
             rows="7"
-            className="w-full resize-none rounded-2xl border border-white/10 bg-white/[.03] px-5 py-4 text-sm leading-7 text-white outline-none placeholder:text-white/20 focus:border-[#d6b46a]/60 focus:bg-[#d6b46a]/[.03] transition"
+            className="w-full resize-none rounded-2xl border border-white/10 bg-white/[.03] px-5 py-4 text-sm leading-7 text-white outline-none placeholder:text-white/20 focus:border-[#d6b46a]/60 transition"
           />
         </div>
 
