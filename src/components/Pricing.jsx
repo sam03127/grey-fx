@@ -7,10 +7,6 @@ const plans = [
   ['MOTION GRAPHICS', '₹1500', 'Motion graphics / campaigns / animated visuals', '04']
 ];
 
-const motionProjects = [
-  `${import.meta.env.BASE_URL}assets/projects/motion-graphics/motion1.png`
-];
-
 export default function Pricing() {
   const [showProjects, setShowProjects] = useState(false);
 
@@ -21,9 +17,7 @@ export default function Pricing() {
     >
       <div className="mx-auto max-w-7xl px-6 md:px-12">
 
-        {/* HEADER */}
         <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-
           <div>
             <div className="mono mb-4 text-[10px] tracking-[.35em] text-[#d6b46a]">
               // 03 — SIMPLE PRICING
@@ -37,14 +31,11 @@ export default function Pricing() {
           <p className="max-w-xs text-xs leading-6 text-white/35">
             Starting prices. Final quote depends on footage, complexity and turnaround.
           </p>
-
         </div>
 
-        {/* PRICING CARDS */}
         <div className="grid border-l border-t border-white/10 md:grid-cols-4">
 
           {plans.map(([t, p, d, n]) => {
-
             const isMotionGraphics = t === 'MOTION GRAPHICS';
 
             return (
@@ -98,16 +89,14 @@ export default function Pricing() {
           })}
 
         </div>
-
       </div>
 
-      {/* PROJECT POPUP */}
+      {/* MOTION GRAPHICS PROJECTS */}
       {showProjects && (
         <div className="fixed inset-0 z-[9999] overflow-y-auto bg-[#050505]/95 backdrop-blur-xl">
 
           <div className="mx-auto max-w-7xl px-6 py-10 md:px-12">
 
-            {/* POPUP HEADER */}
             <div className="mb-12 flex items-center justify-between">
 
               <div>
@@ -129,32 +118,25 @@ export default function Pricing() {
 
             </div>
 
-            {/* PROJECT IMAGE */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
-              {motionProjects.map((image, index) => (
-                <div
-                  key={image}
-                  className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[.02]"
-                >
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[.02]">
 
-                  <img
-                    src={image}
-                    alt={`Motion Graphics Project ${index + 1}`}
-                    className="w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-                  />
+                <img
+                  src="/grey-fx/assets/projects/motion-graphics/motion1.png"
+                  alt="Motion Graphics Project 1"
+                  className="block w-full h-auto object-contain"
+                />
 
-                  <div className="mono px-5 py-4 text-[9px] uppercase tracking-[.25em] text-white/30">
-                    Motion Graphics / Project 01
-                  </div>
-
+                <div className="mono px-5 py-4 text-[9px] uppercase tracking-[.25em] text-white/30">
+                  Motion Graphics / Project 01
                 </div>
-              ))}
+
+              </div>
 
             </div>
 
           </div>
-
         </div>
       )}
 
