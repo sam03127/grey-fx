@@ -15,10 +15,13 @@ export default function Pricing() {
   const [showProjects, setShowProjects] = useState(false);
 
   return (
-    <section id="pricing" className="border-b border-white/10 bg-[#080808] py-28 md:py-36">
-
+    <section
+      id="pricing"
+      className="border-b border-white/10 bg-[#080808] py-28 md:py-36"
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-12">
 
+        {/* HEADER */}
         <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
 
           <div>
@@ -37,6 +40,7 @@ export default function Pricing() {
 
         </div>
 
+        {/* PRICING CARDS */}
         <div className="grid border-l border-t border-white/10 md:grid-cols-4">
 
           {plans.map(([t, p, d, n]) => {
@@ -47,7 +51,9 @@ export default function Pricing() {
               <div
                 key={t}
                 onClick={() => {
-                  if (isMotionGraphics) setShowProjects(true);
+                  if (isMotionGraphics) {
+                    setShowProjects(true);
+                  }
                 }}
                 className={`border-b border-r border-white/10 p-7 md:p-9 ${
                   isMotionGraphics
@@ -95,11 +101,13 @@ export default function Pricing() {
 
       </div>
 
+      {/* PROJECT POPUP */}
       {showProjects && (
         <div className="fixed inset-0 z-[9999] overflow-y-auto bg-[#050505]/95 backdrop-blur-xl">
 
           <div className="mx-auto max-w-7xl px-6 py-10 md:px-12">
 
+            {/* POPUP HEADER */}
             <div className="mb-12 flex items-center justify-between">
 
               <div>
@@ -121,6 +129,7 @@ export default function Pricing() {
 
             </div>
 
+            {/* PROJECT IMAGE */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
               {motionProjects.map((image, index) => (
